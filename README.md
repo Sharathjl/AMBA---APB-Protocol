@@ -53,3 +53,56 @@
 ## APB block diagram
 
 ![]()
+
+
+## Signal specification of APB
+ **PCLK Clock:** The rising edge of PCLK times all transfers on the APB.   
+ **PRESET:** System bus equivalent Reset. The APB reset signal is active LOW.  
+ **PADDR:**  32 bit address bus PSEL The slave device is selected and that a data transfer is required.   
+ **PENABLE Enable:** This signal indicates the second and subsequent cycles of an APB transfer.   
+ **PWRITE:**  Access when HIGH.    
+ **PWDATA:**  32 bits Write data PWRITE is HIGH.     
+ **PREADY:**  Ready To extend an APB transfer.    
+ **PRDATA:**  32 bits Read data and PWRITE is LOW.   
+ **PSLAVERR Slave error:** This signal indicates a transfer failure. 
+
+  # Design and operating states of APB
+
+![](https://github.com/Sharathjl/AMBA---APB-Protocol/blob/main/images/DesignState_amba.jpg)
+
+
+**IDLE :** This is the default state of the APB.                
+**SETUP:**  When a transfer is required the bus moves into the SETUP state, where the appropriate select signal, **PSELx**, is asserted. The bus only remains in the SETUP state for one clock cycle and always moves to the ACCESS state on the next rising edge of the clock.                       
+**ACCESS:** The enable signal, **PENABLE**, is asserted in the ACCESS state. The address, write, select, and write data signals must remain stable during the transition from the SETUP to ACCESS state.
+Exit from the ACCESS state is controlled by the **PREADY** signal from the slave: 
+- If PREADY is held LOW by the slave then the peripheral bus remains in the ACCESS state.             
+-  If PREADY is driven HIGH by the slave then the ACCESS state is exited and the bus returns to the IDLE state if no more transfers are required. Alternatively, the bus moves directly to the SETUP state if another transfer follows.
+
+# Write operation
+
+![]()
+
+
+- At T1, a write transfer starts with PADDR, PWDATA, PWRITE, and PSEL, being registered at the rising edge of PCLK. It is called the SETUP cycle.                                    
+-  At the next rising edge of the clock T2 it is called ACCESS cycle, PENABLE, and PREADY, are registered. When asserted, PENABLE indicates starting of Access phase of the transfer. When asserted, PREADY indicates that the slave can complete the transfer at the next rising edge of PCLK.                     
+- The PADDR, PWDATA, and control signals all remain valid until the transfer completes at T3, the end of the Access phase.                                                         
+- The PENABLE, is disabled at the end of the transfer. The select signal PSEL is also disabled unless the transfer is to be followed immediately by another transfer to the same peripheral.                       
+
+
+# Read operation
+![]()
+
+
+- During read operation the PENABLE, PSEL, PADDR PWRITE, signals are asserted at the clock edge T1 (**SETUP cycle**).         
+- At the clock edge T2, (**ACCESS cycle**), the PENABLE, PREADY are asserted and PRDATA is also read during this phase. The slave must provide the data before the end of the read transfer.  
+
+# Simulation results of APB design
+
+![]()
+
+# References
+        
+[1] ARM, “AMBA Specification Overview”, available at [URL](http://www.arm.com/)       
+[2] ARM, “AMBA Specification (Rev 2.0)”, available at [URL](http://www.arm.com)                
+[3] URL: [click here](http://www.differencebetween.net/technology/difference-between-ahb-and-apb)        
+[4] Samir Palnitkar, “Verilog HDL: A guide to Digital Design and Synthesis (2nd Edition), Pearson, 2008.   
