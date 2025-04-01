@@ -90,7 +90,7 @@ Exit from the ACCESS state is controlled by the **PREADY** signal from the slave
 
 
 # Read operation
-![]()
+![](https://github.com/Sharathjl/AMBA---APB-Protocol/blob/main/images/read_amba.jpg)
 
 
 - During read operation the PENABLE, PSEL, PADDR PWRITE, signals are asserted at the clock edge T1 (**SETUP cycle**).         
