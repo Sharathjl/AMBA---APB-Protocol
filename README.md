@@ -80,7 +80,7 @@ Exit from the ACCESS state is controlled by the **PREADY** signal from the slave
 
 # Write operation
 
-![]()
+![](https://github.com/Sharathjl/AMBA---APB-Protocol/blob/main/images/write_amba.jpg)
 
 
 - At T1, a write transfer starts with PADDR, PWDATA, PWRITE, and PSEL, being registered at the rising edge of PCLK. It is called the SETUP cycle.                                    
