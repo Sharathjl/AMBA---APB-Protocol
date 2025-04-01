@@ -52,7 +52,7 @@
 
 ## APB block diagram
 
-![]()
+![](https://github.com/Sharathjl/AMBA---APB-Protocol/blob/main/images/blockDgam_amba.jpg)
 
 
 ## Signal specification of APB
