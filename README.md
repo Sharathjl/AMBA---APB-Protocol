@@ -18,4 +18,38 @@
   - It is a high-speed, high-bandwidth bus that supports multimaster bus management to get the most out of    system performance.
   - AMBA specifications are able to maximize the use of system bus bandwidth during dead time. After        defining a common backbone for SoC modules, it enhances a reusable design methodology. 
   - This system has emerged as the defacto standard for IP library progress and SoC interconnection.
+![](https://github.com/Sharathjl/AMBA---APB-Protocol/blob/main/images/architecture_amba.jpg)
+
+
+  - This is development of embedded microcontroller products with one or more CPUs or signal processors. 
+  -  This is highly reusable peripheral appropriate for full-custom, standard cell and gate array technologies. 
+  -  It provides a road-map for advanced cached CPU cores and the development of peripheral libraries to minimize the silicon infrastructure required to support efficient on-chip.   
+  An AMBA is having backbone bus AMBA AHB or AMBA ASB. It sustains external memory bandwidth, on which the CPU, on-chip memory and other Direct Memory Access (DMA) devices abide. This bus provides a high-bandwidth interface between the elements that are involved in the majority of transfers. Also it is a bridge to the lower bandwidth APB.
+
+ ## Types of AMBA Bus
+
+ Five interfaces are defined within the AMBA specification: 
+-   Advanced system bus (ASB)
+-   Advanced peripheral bus (APB)
+-   Advanced high-performance bus (AHB)
+-   Advanced extensible interface (AXI)
+-   Advanced trace bus (ATB)
+
+## AHB VS APB
+- AHB stands for Advanced High-performance Bus and APB sands for Advanced Peripheral Bus. Both the Advanced High-performance Bus and the Advanced Peripheral Bus are part of the Advanced Microprocessor Bus Architecture (AMBA). Though both the AHB and the APB belong to AMBA, they differ in many way.    
+- Difference between the two, the AHB uses a full duplex parallel communication whereas the APB uses massive memory-I/O accesses. Both the AHB and the APB are on chip Bus standards. The Advanced High-performance Bus is capable of waits, errors and bursts. The ADH, which is pipelined, mainly connects to memories.      
+- When comparing the usage, the APB is simpler than the AHB. Unlike the AHB, there is no pipelining in APB. The APB is mainly proposed for connecting to simple peripherals. Looking at the AHB and the APB, it can be seen that the APB comes with a low power peripheral.         
+- It can also be seen that Advanced Peripheral Bus is sometimes optimized for reduced interface complexity and minimal power consumption for supporting peripheral functions. This Bus can also be used in union with either version of the system bus.               
+- When looking at the features of AHB, it has a single edge clock protocol, several bus masters, split transactions, single-cycle bus master handover, burst transfers, large bus widths.          
+- In AHB, the transaction consists of an address phase and a data phase. In case of AHB, there is only one Bus master at a time. When compared to Advanced High-performance Bus, the Advanced Peripheral Bus is only used for low bandwidth control accesses. Though the APB has an address phase and data phase as like that of the AHB, it comes with a list of low complexity signal.
+
+# Advanced Peripheral Bus
+- The Advanced Peripheral Bus (APB) is part of the Advanced Micro  controller Bus Architecture (AMBA)  .
+-  APB is optimized for minimal power consumption and reduced  interface  complexity.
+- The AMBA APB should be used to interface to any peripherals which are  low bandwidth and do not require the  high performance of a pipelined bus  interface.
+- The AMBA APB appears as a local secondary bus that is encapsulated as  a single AHB or ASB slave  device.
+- AMBA APB provides the basic peripheral macro cell communications infrastructure as a secondary bus from the  higher bandwidth pipelined main system bus. It consist of interfaces which are memory-mapped registers.
+
+## APB block diagram
+
 ![]()
