@@ -98,7 +98,7 @@ Exit from the ACCESS state is controlled by the **PREADY** signal from the slave
 
 # Simulation results of APB design
 
-![]()
+![](https://github.com/Sharathjl/AMBA---APB-Protocol/blob/main/images/result_amba.jpg)
 
 # References
         
